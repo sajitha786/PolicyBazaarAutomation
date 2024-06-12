@@ -19,13 +19,11 @@ public class CarInsuranceQuotation {
 	public void getCarQuote() throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
-		//Thread.sleep(3000L);
 		System.out.println(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed());
 		if(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed()) {
 			driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).click();
 		}
 
-		//Thread.sleep(3000L);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='insurance-listing']//div[@class='left']//strong[contains(text(),'Car')][1]"))).click();
 		//driver.findElement(By.xpath("//div[@class='insurance-listing']//div[@class='left']//strong[contains(text(),'Car')][1]")).click();
 		if(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed()) {
