@@ -1,5 +1,4 @@
 import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -19,42 +18,37 @@ public class CarInsuranceQuotation {
 
 	public void getCarQuote() throws InterruptedException {
 		// TODO Auto-generated method stub
-		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(30));
-		Thread.sleep(3000L);
+		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+		//Thread.sleep(3000L);
 		System.out.println(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed());
 		if(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed()) {
 			driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).click();
 		}
 
-		Thread.sleep(3000L);
-		
-		driver.findElement(By.xpath("//div[@class='insurance-listing']//div[@class='left']//strong[contains(text(),'Car')][1]")).click();
+		//Thread.sleep(3000L);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='insurance-listing']//div[@class='left']//strong[contains(text(),'Car')][1]"))).click();
+		//driver.findElement(By.xpath("//div[@class='insurance-listing']//div[@class='left']//strong[contains(text(),'Car')][1]")).click();
 		if(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed()) {
 			driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).click();
 		}
 		
-		Thread.sleep(3000L);
 		WebElement selectElement = driver.findElement(By.cssSelector(".dynamic-select-item"));
-		
+		wait.until(ExpectedConditions.visibilityOf(selectElement));
 		//selecting the brand
 		selectElement.click();
 		Actions keyDown = new Actions(driver);
 		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
 		driver.findElement(By.xpath("//div[@class='dynamic-flag-items']//span[.='Nissan']")).click();
-		Thread.sleep(2000L);
 		//clicking the show more button
-		driver.findElement(By.xpath("//div[@class='older-btn']//a")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='older-btn']//a"))).click();
 		//Selecting the Car's model year
 		driver.findElement(By.xpath("//div[@class='year ']//li//span[text()='2010']")).click();
-		Thread.sleep(2000L);
 		//Selecting the Car Model
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Sunny']")).click();
-		Thread.sleep(2000L);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Sunny']"))).click();
 		//Selecting the Car Variant
-		driver.findElement(By.xpath("//div[@class=' ']//span[text()='SV 1.6L']")).click();
-		Thread.sleep(2000L);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class=' ']//span[text()='SV 1.6L']"))).click();
 		//Selecting the Vehicle's Specification
-		driver.findElement(By.xpath("//span[text()='GCC Spec']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='GCC Spec']"))).click();
 		//Entering the user details
 		//Enter the name
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("name"))).sendKeys("Sajitha");
@@ -78,44 +72,32 @@ public class CarInsuranceQuotation {
 		//Clicking on button proceed
 		driver.findElement(By.id("submitBtn")).click();
 		//selecting Nationality
-		Thread.sleep(3000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap   flag-wrap']//span[text()='Indian']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap   flag-wrap']//span[text()='Indian']"))).click();
 		//Where do you want to register your car 	
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Abu Dhabi']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Abu Dhabi']"))).click();
 		//selecting Buying a Second Hand Car ?
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='No']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='No']"))).click();
 		//selecting First Registration Year
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='2009']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='2009']"))).click();
 		//UAE Driving Exp.
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Above 5 Years']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Above 5 Years']"))).click();
 		//Previous Insurer
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='New India']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='New India']"))).click();
 		//When do you want to register your car? (DD/MMM/YYYY)
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//button[@class='react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend']//abbr[text()='30']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend']//abbr[text()='30']"))).click();
 		//How many months without any Accident?
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Never met with an Accident']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='Never met with an Accident']"))).click();
 		//Do you have a No Claims Certificate from the insurer ?
-		Thread.sleep(2000L);
-		driver.findElement(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='No, I have No Certificate']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-outline-wrap  ']//span[text()='No, I have No Certificate']"))).click();
 		//Your previous policy repair type
-		Thread.sleep(3000L);
-		driver.findElement(By.xpath("//div[@class='btns-wrap ']//div[text()='Agency']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btns-wrap ']//div[text()='Agency']"))).click();
 		
-		Thread.sleep(3000L);
-		driver.findElement(By.xpath("//div[@class='btns-wrap ']//div[text()='YES']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btns-wrap ']//div[text()='YES']"))).click();
 		//Would you like to activate this service?
-		Thread.sleep(15000L);
-		if(driver.findElement(By.xpath("//div[@class='btn-wrap']//a[@class='btn-outline']")).isDisplayed()) {
-				driver.findElement(By.xpath("//div[@class='btn-wrap']//a[@class='btn-outline']")).click();
-		}
-		//
+		WebElement waitt =new WebDriverWait(driver, Duration.ofMinutes(2))
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='btn-wrap']//a[@class='btn-outline']")));
+		waitt.click();
+
 	}
 
 }
