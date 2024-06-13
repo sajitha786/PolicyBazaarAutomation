@@ -12,7 +12,8 @@ public class HomePageDemo {
 		// TODO Auto-generated method stub
 		FileInputStream fis = null;
 		try {
-			fis = new FileInputStream("D:\\EclipseWorkSpace\\PolicyBazaarAutomation\\Configuration\\config.properties");
+			System.out.println("The path is :"+ System.getProperty("user.dir"));
+			fis = new FileInputStream(System.getProperty("user.dir")+"\\Configuration\\config.properties");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,7 +30,7 @@ public class HomePageDemo {
 		String ApplicationUrl =prop.getProperty("AppUrl");
 		System.out.println(mybrowser);
 		if(mybrowser.equals("ChromeBrowser")) {
-		System.setProperty("webdriver.chrome.driver","C:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver","C:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 		WebDriver driver= new ChromeDriver();
 		
 		//Navigating to policybazaar website
