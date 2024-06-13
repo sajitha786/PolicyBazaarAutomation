@@ -61,8 +61,6 @@ public class CarInsuranceQuotation {
 		wait.until(ExpectedConditions.visibilityOf(selectElement));
 		//selecting the brand
 		selectElement.click();
-		Actions keyDown = new Actions(driver);
-		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
 		driver.findElement(By.xpath("//div[@class='dynamic-flag-items']//span[.='"+carBrand+"']")).click();
 		//clicking the show more button
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='older-btn']//a"))).click();
