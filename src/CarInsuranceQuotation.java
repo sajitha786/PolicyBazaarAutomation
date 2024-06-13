@@ -1,6 +1,7 @@
 import java.time.Duration;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,37 +12,39 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CarInsuranceQuotation {
 
 	private WebDriver driver;
+	private Properties prop;
 
-	public CarInsuranceQuotation(WebDriver driver2) {
+	public CarInsuranceQuotation(WebDriver driver2, Properties prop) {
 		// TODO Auto-generated constructor stub
 		this.driver=driver2;
+		this.prop=prop;
 	}
 
 	public void getCarQuote() throws InterruptedException {
 		// TODO Auto-generated method stub
-		String name= "Sajitha";
-		String mailId="sajithanazar29@gmail.com";
-		String mob="585082071";
-		String carBrand="Nissan";
-		String modelYear="2010";
-		String carModel="Sunny";
-		String carVariant="SV 1.6L";
-		String spec="GCC Spec";
-		String dob_year="1993";
-		String dob_month="January";
-		String dob_day="29";
-		String Nationality="Indian";
-		String placeRegistered="Abu Dhabi";
-		String secondHandCar="No";
-		String regYear="2009";
-		String drvExp="Above 5 Years";
-		String insurance="New India";
-		String dateToRegister="30";
-		String accidentHistory="Never met with an Accident";
-		String claimCertificate="No, I have No Certificate";
-		String repairType="Agency";
-		String isExpired="YES";
-		
+		String name=prop.getProperty("name");
+		String mailId =prop.getProperty("mailId");
+		String mob=prop.getProperty("mob");
+		String carBrand =prop.getProperty("carBrand");
+		String modelYear=prop.getProperty("modelYear");
+		String carModel =prop.getProperty("carModel");
+		String carVariant=prop.getProperty("carVariant");
+		String spec =prop.getProperty("spec");
+		String dob_year=prop.getProperty("dob_year");
+		String dob_month =prop.getProperty("dob_month");
+		String dob_day=prop.getProperty("dob_day");
+		String Nationality =prop.getProperty("Nationality");
+		String placeRegistered=prop.getProperty("placeRegistered");
+		String secondHandCar =prop.getProperty("secondHandCar");
+		String regYear=prop.getProperty("regYear");
+		String drvExp =prop.getProperty("drvExp");
+		String insurance=prop.getProperty("insurance");
+		String dateToRegister =prop.getProperty("dateToRegister");
+		String accidentHistory=prop.getProperty("accidentHistory");
+		String claimCertificate =prop.getProperty("claimCertificate");
+		String repairType=prop.getProperty("repairType");
+		String isExpired =prop.getProperty("isExpired");
+				
 		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
 		//System.out.println(driver.findElement(By.xpath("//button[@class='close-modal-rounded']")).isDisplayed());
 		//WebElement modalElement = driver.findElement(By.xpath("//button[@class='close-modal-rounded']"));
